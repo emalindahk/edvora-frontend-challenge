@@ -34,7 +34,7 @@ export default function Home({ data }) {
   };
 
   let fetchPokemon = () => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${(count + 1).toString()}`)
+    fetch(`${process.env.POKEAPI_BASE_URL}pokemon/${(count + 1).toString()}`)
       .then((response) => response.json())
       .then((response) => {
         setPokemon(response);
@@ -42,7 +42,7 @@ export default function Home({ data }) {
   };
 
   let fetchAbility = () => {
-    fetch(`https://pokeapi.co/api/v2/ability/${(count + 1).toString()}`)
+    fetch(`${process.env.POKEAPI_BASE_URL}ability/${(count + 1).toString()}`)
       .then((response) => response.json())
       .then((response) => {
         setAbility(response);
@@ -235,7 +235,7 @@ export default function Home({ data }) {
 
 export async function getStaticProps() {
   const pokeData = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/?limit=500`
+    `${process.env.POKEAPI_BASE_URL}pokemon/?limit=500`
   ).then((res) => res.json());
 
   return {
