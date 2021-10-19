@@ -34,7 +34,8 @@ export default function Home({ data }) {
   };
 
   let fetchPokemon = () => {
-    fetch(data.results[`${count.toString()}`].url)
+    const url = data.results[`${count.toString()}`].url;
+    fetch(url)
       .then((response) => response.json())
       .then((response) => {
         setPokemon(response);

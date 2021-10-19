@@ -18,7 +18,6 @@ function PokemonMoves({ id }) {
     fetchMoves();
   }, [id]);
 
-  console.log(moves);
 
   return (
     <div className="flex flex-col text-lg text-gray-800 space-y-4 items-start font-bold">
