@@ -34,8 +34,7 @@ export default function Home({ data }) {
   };
 
   let fetchPokemon = () => {
-    const url = data.results[`${count.toString()}`].url;
-    fetch(url)
+    fetch(`${process.env.POKEAPI_BASE_URL}pokemon/${(count + 1).toString()}`)
       .then((response) => response.json())
       .then((response) => {
         setPokemon(response);
@@ -65,7 +64,8 @@ export default function Home({ data }) {
       <Header />
 
       <main
-        className="flex flex-col items-center justify-center w-full flex-1 px-5 lg:px-20 text-center md:py-10 pb-56 sm:pb-20 h-full"
+        className="flex flex-col items-center justify-center w-full flex-1 px-5 
+        lg:px-20 text-center md:py-10 pb-56 sm:pb-20 h-full"
         style={{
           backgroundColor: `${
             pokemon && pokemon.name
@@ -127,8 +127,8 @@ export default function Home({ data }) {
               </p>
             </span>
 
-            <div className="flex flex-col space-y-3 py-8 lg:py-0">
-              <div className="flex items-start lg:items-center space-x-2">
+            <div className="flex flex-col space-y-3 py-8 lg:py-0 w-full item-start">
+              <div className="flex justify-start  space-x-2">
                 <p className="">Type</p>
                 {pokemon.types?.map((type) => (
                   <span
