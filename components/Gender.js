@@ -12,7 +12,7 @@ function Gender({ id, image }) {
   }
 
   let fetchGender = () => {
-    fetch(`${process.env.POKEAPI_BASE_URL}gender/${(id + 1).toString()}`)
+    fetch(`https://pokeapi.co/api/v2/gender/${(id + 1).toString()}`)
       .then((response) => response.json())
       .then((response) => {
         setGender(response);

@@ -7,7 +7,7 @@ function PokemonMoves({ id }) {
   const damages = moves && moves.name ? moves.damage_class.name : "";
 
   let fetchMoves = () => {
-    fetch(`${process.env.POKEAPI_BASE_URL}move/${(id + 1).toString()}`)
+    fetch(`https://pokeapi.co/api/v2/move/${(id + 1).toString()}`)
       .then((response) => response.json())
       .then((response) => {
         setMoves(response);
